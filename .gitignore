@@ -5,7 +5,11 @@
 *.txt
 *.pt
 *.yaml
+*.cache
+*.csv
 *events.out.tfevents.*
+test*
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
