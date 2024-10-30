@@ -1,15 +1,18 @@
-#
+# media
 *.jpg
 *.png
 *.mp4
-*.txt
-*.pt
-*.yaml
+# model/data
 *.cache
 *.ckpt
 *.pth
 *.pt
+*.txt
 *.csv
+# logs
+*.yaml
+*.out
+*.err
 *events.out.tfevents.*
 test*
 

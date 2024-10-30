@@ -19,7 +19,7 @@ class ImageLoggerCallback(Callback):
             log_images(trainer, module, batch, batch_idx, self.save_dir, split='train')
 
     def on_validation_batch_end(self, trainer, module, outputs, batch, batch_idx):
-        if batch_idx == 0:
+        if batch_idx == 66:
             log_images(trainer, module, batch, batch_idx, self.save_dir, split='val')
              
 

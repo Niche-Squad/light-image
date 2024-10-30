@@ -84,8 +84,8 @@ class PatachedDataModule(l.LightningDataModule):
             batch_size=self.batch,
             shuffle=True,
             pin_memory=True,
-            num_workers=4,
-            persistent_workers=True,
+            # num_workers=1,
+            # persistent_workers=True,
             # collate_fn=self._collate_fn_train,
         )
 
@@ -97,7 +97,7 @@ class PatachedDataModule(l.LightningDataModule):
             batch_size=self.batch,
             shuffle=False,
             pin_memory=True,
-            num_workers=4,
+            # num_workers=1,
             # collate_fn=self._collate_fn_val,
         )
 
@@ -109,7 +109,7 @@ class PatachedDataModule(l.LightningDataModule):
             batch_size=self.batch,
             shuffle=False,
             pin_memory=True,
-            num_workers=4,
+            # num_workers=1,
             # collate_fn=self._collate_fn_test,
         )
 

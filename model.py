@@ -16,7 +16,7 @@ from blocks import (
     TransConvBlock)
 
 class CAE_abstract(l.LightningModule):
-    def __init__(self, lr=1e-5):
+    def __init__(self, lr):
         super().__init__()
         self.lr = lr
         # encoders
@@ -143,7 +143,7 @@ class CAE_abstract(l.LightningModule):
         }
         
 class CAE_16(CAE_abstract):
-    def __init__(self, lr=1e-4):
+    def __init__(self, lr):
         super().__init__(lr=lr)
         # encoders
         self.eA1 = ConvBlockA(cin=3, cout=64, k=5, s=2)
@@ -161,7 +161,7 @@ class CAE_16(CAE_abstract):
         self.dD1 = ConvBlockD16(cin=256, cout=16, k=3, s=1)
 
 class CAE_32(CAE_abstract):
-    def __init__(self, lr=1e-4):
+    def __init__(self, lr):
         super().__init__(lr=lr)
         # encoders
         self.eA1 = ConvBlockA(cin=3, cout=64, k=5, s=2)
