@@ -6,6 +6,9 @@
 *.pt
 *.yaml
 *.cache
+*.ckpt
+*.pth
+*.pt
 *.csv
 *events.out.tfevents.*
 test*
