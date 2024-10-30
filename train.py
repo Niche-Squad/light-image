@@ -12,29 +12,29 @@ from trainer import NicheTrainer
 def main(args):
     ls_jobs = []
     for lr in [1e-3, 1e-4, 1e-5]:
-        for model in [CAE_16, CAE_32]:
-            ls_jobs.append((lr, model))
+        for modelclass in [CAE_16, CAE_32]:
+            ls_jobs.append((lr, modelclass))
     i_job = int(args.job)
-    lr, model = ls_jobs[i_job]
+    lr, modelclass = ls_jobs[i_job]
                 
     load_dotenv(".env")
     DIR_DATA = Path(os.getenv("DIR_DATA"))
     paths = dict(
         train = DIR_DATA / "01-08",
         val = DIR_DATA / "01-21",
-        logs = Path.cwd() / "logs" / f"{model.__name__}_{lr}" 
+        logs = Path.cwd() / "logs" / f"{modelclass.__name__}_{lr}" 
     )
 
     callback = ImageLoggerCallback(save_every=500, 
                                    save_dir=paths["logs"])
     trainer = NicheTrainer("cuda")
-    trainer.set_model(model, lr=lr)
+    trainer.set_model(modelclass, lr=lr)
     trainer.set_data(PatachedDataModule, 
                     batch=2,
                     path_train=paths["train"],
                     path_val=paths["val"],)
     trainer.set_out(paths["logs"])
-    trainer.fit(epochs=100, callbacks=[callback])
+    trainer.fit(epochs=50, callbacks=[callback])
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

@@ -84,7 +84,7 @@ class PatachedDataModule(l.LightningDataModule):
             batch_size=self.batch,
             shuffle=True,
             pin_memory=True,
-            # num_workers=1,
+            # num_workers=4,
             # persistent_workers=True,
             # collate_fn=self._collate_fn_train,
         )
