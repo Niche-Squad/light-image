@@ -11,8 +11,8 @@ from trainer import NicheTrainer
 
 def main(args):
     ls_jobs = []
-    for lr in [1e-3, 1e-4, 1e-5]:
-        for modelclass in [CAE_16, CAE_32]:
+    for modelclass in [CAE_16, CAE_32]:
+        for lr in [3e-4, 2e-4, 8e-5]:
             ls_jobs.append((lr, modelclass))
     i_job = int(args.job)
     lr, modelclass = ls_jobs[i_job]
@@ -22,7 +22,7 @@ def main(args):
     paths = dict(
         train = DIR_DATA / "01-08",
         val = DIR_DATA / "01-21",
-        logs = Path.cwd() / "logs" / f"{modelclass.__name__}_{lr}" 
+        logs = Path.cwd() / "logs" / f"{modelclass.__name__}_{lr}_32" 
     )
 
     callback = ImageLoggerCallback(save_every=500, 

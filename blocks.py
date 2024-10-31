@@ -90,7 +90,8 @@ def ConvBlockD16(cin, cout, k, s):
             stride=(s, s)
         ),
         nn.LeakyReLU(),
-        nn.ZeroPad2d((1, 1, 1, 1)),
+        nn.ReflectionPad2d((1, 1, 1, 1)),
+        # nn.ZeroPad2d((1, 1, 1, 1)),
         nn.ConvTranspose2d(
             in_channels=cout, 
             out_channels=3, 
