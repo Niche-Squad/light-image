@@ -111,7 +111,7 @@ class NicheTrainer:
             save_top_k=1,
             verbose=False,
             save_last=False,
-            filename="model-{val_loss:.3f}",
+            filename="model-{val_loss:.4f}",
         )
         return checkpoint_callback
 
